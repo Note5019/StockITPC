@@ -1,0 +1,46 @@
+<!--
+  Generated template for the StockInPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  
+      <ion-title>{{ 'STOCK_IN_TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+  <img src="assets/img/stockInForm.png" style="width : 100% ; height : auto">
+  <form>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">Order Number</ion-label>
+      <ion-input type="text" placeholder="number" [(ngModel)]="stockIn.number" name="number" required></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label color="dark">Date</ion-label>
+      <ion-datetime placeholder="date" displayFormat="DD/MM/YYYY" [(ngModel)]="stockIn.date" name="date"  required></ion-datetime>
+    </ion-item>
+
+    <!-- <ion-item>
+        <ion-label color="dark" >Site</ion-label>
+        <ion-select placeholder="site" [(ngModel)]="stockIn.site" name="site">
+          <ion-option value="Bangsaen">Bangsaen</ion-option>
+          <ion-option value="Bangkok">Bangkok</ion-option>
+        </ion-select>
+      </ion-item> -->
+  </ion-list>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <button ion-button large full class="stockIn"  (click)="confirmStockIn()">CONFIRM</button>
+</ion-footer>

@@ -1,0 +1,42 @@
+<!--
+  Generated template for the StockAdjustPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-toolbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    
+        <ion-title>{{ 'STOCK_ADJ_TITLE' | translate }}</ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+    <img src="../../assets/img/stockAdjustForm.png" style="width : 100% ; height : auto">
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark" >SITE</ion-label>
+      <ion-select placeholder="Site" [(ngModel)]="stoctAdj.site" name="site">
+        <ion-option value="Bangsaen">Bangsaen</ion-option>
+        <ion-option value="Bangkok">Bangkok</ion-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label color="dark">Category</ion-label>
+      <ion-select placeholder="Category" [(ngModel)]="stoctAdj.category" name="category">
+         <ion-option *ngFor="let adj of Adjust" [(value)] = "adj.itemCateId">{{adj.desc}}</ion-option> 
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <button ion-button large full (click)="confirmStockAdj()" class="stockAdj">CONFIRM</button>
+</ion-footer>

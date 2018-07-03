@@ -1,0 +1,46 @@
+<!--
+  Generated template for the StockTotalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+<ion-toolbar>
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+
+    <ion-title>{{ 'STOCK_TOTAL_TITLE' | translate }}</ion-title>
+</ion-toolbar>
+
+</ion-header>
+  
+  <ion-content padding>
+      <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel"
+      (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+      <button ion-button medium full (click)="scanItem()">SEARCH WITH BARCODE</button><br/>
+      <ion-grid *ngIf="productFound">
+        <ion-row>
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4>
+          <ion-list  *ngFor = "let product of products">  
+            <ion-item-sliding #item>
+            <ion-item>
+              <ion-thumbnail item-left>
+              <img src="assets/img/square2.png">
+              </ion-thumbnail>
+              <span><B>Site</B> : {{product.site}}</span><br>
+              <span><B>Category</B> : {{product.itemCateId}}</span><br>
+              <span><B>Item Code</B> : {{product.itemCode}}</span><br>
+              <span><B>Item Name</B> : {{product.itemName}}</span><br>
+              <span><B>Quantity</B> : {{product.stock}} </span><br>
+              <br>
+            </ion-item>
+            </ion-item-sliding>
+          </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>  
+  </ion-content>

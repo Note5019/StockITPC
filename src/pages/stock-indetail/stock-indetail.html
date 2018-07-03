@@ -1,0 +1,56 @@
+<!--
+  Generated template for the StockInPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+
+        <ion-title>{{ 'STOCK_IN_TITLE' | translate }}</ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+  <ion-content padding>
+      <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel"
+      (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+      <button ion-button medium full (click)="scanItem()">SEARCH WITH BARCODE</button><br/>
+      <ion-grid *ngIf="productFound">
+        <ion-row>
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4>
+          <ion-list  *ngFor = "let product of products">
+            <ion-item-sliding #item>
+            <ion-item>
+              <ion-thumbnail item-left>
+              <img src="assets/img/square2.png">
+              </ion-thumbnail>
+              <span><B>Item Code</B> : {{product.itemCode}}</span><br>
+              <span><B>Item Name</B> : {{product.itemName}}</span><br>
+              <span><B>Lot</B> : {{product.itemLot}} </span><br>
+              <span><B  style="margin-top:50px">Quantity</B> :
+                <ion-icon ios="ios-remove-circle" md="md-remove-circle" (click)="minItemQty(product.itemCode)"></ion-icon>
+                {{product.itemQty}}
+                <!-- <ion-input type="text" [(ngModel)]="product.itemQty"></ion-input> -->
+                <ion-icon ios="ios-add-circle" md="md-add-circle" (click)="plusItemQty(product.itemCode)"></ion-icon>
+              </span>
+              <br>
+            </ion-item>
+            <ion-item-options side="right">
+              <button ion-button expandable (click)="delete(product.itemCode)" color="danger">Delete</button>
+            </ion-item-options>
+            </ion-item-sliding>
+          </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-content>
+
+  <ion-footer>
+    <button ion-button large full (click)="confirmForm()" class="stockInDetail">CONFIRM</button>
+  </ion-footer>

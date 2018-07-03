@@ -1,0 +1,39 @@
+<!--
+  Generated template for the StockAdjdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'STOCK_ADJ_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel"
+      (ionInput)="getItems($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+    <button ion-button medium full (click)="scanItem()">SEARCH WITH BARCODE</button><br/>
+    <div class="row header" *ngIf="productFound">
+      <div class="col">Category</div>
+      <div class="col">Code</div>
+      <div class="col">Name</div>
+      <div class="col">Count</div>
+    </div>
+    <div class="row" *ngFor = "let product of products">
+      <div class="col"><ion-input placeholder="Code" [(ngModel)]="product.itemCateId" [readonly]="isReadonly()"></ion-input></div>
+      <div class="col"><ion-input placeholder="Code" [(ngModel)]="product.itemCode" [readonly]="isReadonly()"></ion-input></div>
+      <div class="col"><ion-input placeholder="Name" [(ngModel)]="product.itemName" [readonly]="isReadonly()"></ion-input></div>
+      <div class="col"><ion-input type="number" placeholder="Count"[(ngModel)]="product.count" (input)="onInput(product.itemCode)"></ion-input></div>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <button ion-button large full (click)="confirmForm()" class="stockAdj">CONFIRM</button>
+</ion-footer>

@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-0.5></ion-col>
+      <ion-col col-5>
+        <img src="assets/img/stockIn.png" style="width : 100% ; height : auto" (click)="clickStockIn()">
+      </ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-5>
+        <img src="assets/img/stockOut.png" style="width : 100% ; height : auto" (click)="clickStockOut()">
+      </ion-col>
+      <ion-col col-0.5></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-0.5></ion-col>
+      <ion-col col-5>
+        <img src="assets/img/stockAdj.png" style="width : 100% ; height : auto" (click)="clickStockAdjust()">
+      </ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-5>
+        <img src="assets/img/stockTotal.png" style="width : 100% ; height : auto" (click)="clickStockTotal()">
+      </ion-col>
+      <ion-col col-0.5></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-0.5></ion-col>
+      <ion-col col-5>
+        <img src="assets/img/transaction.png" style="width : 100% ; height : auto" (click)="clickTransaction()">
+      </ion-col>
+      <ion-col col-1></ion-col>
+      <!-- <img src="assets/img/setting.png" style="width : 100% ; height : auto" (click)="clickSetting()" > -->
+      <ion-col col-5></ion-col>
+      <ion-col col-0.5></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-0.5></ion-col>
+      <ion-col col-5>
+        <img src="assets/img/transaction.png" style="width : 100% ; height : auto" (click)="clickTestPage()">
+      </ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-5></ion-col>
+      <ion-col col-0.5></ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-content scroll="false">
+  <div class="splash-bg">
+    <img src="assets/img/build_itpc.png">
+  </div>
+  <div class="splash-info">
+    <BR/>
+    <form (ngSubmit)="loginForm()">
+      <ion-item>
+        <ion-label color="dark">USERNAME</ion-label>
+        <ion-input type="text" placeholder="username" [(ngModel)]="login.username" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">PASSWORD</ion-label>
+        <ion-input type="password" placeholder="password" [(ngModel)]="login.password" name="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">SITE</ion-label>
+        <ion-select placeholder="site" [(ngModel)]="login.site" name="site">
+          <ion-option value="Bangsaen">Bangsaen</ion-option>
+          <ion-option value="Bangkok">Bangkok</ion-option>
+        </ion-select>
+      </ion-item>
+      <button ion-button block class="login">{{ 'LOGIN' | translate }}</button>
+    </form>
+    <button ion-button block (click)="scanQrcodeLogin()" class="login">{{ 'QRCODE' | translate }}</button>
+    <!-- <button ion-button block (click)="signup()">{{ 'SIGNUP' | translate }}</button> -->
+    <!-- <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
+     <button ion-button block (click)="scanQrcodeLogin()" class="login">{{ 'QRCODE' | translate }}</button>  -->
+
+  </div>
+</ion-content>
